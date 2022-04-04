@@ -1,10 +1,10 @@
-import { Module, OnModuleInit } from '@nestjs/common';
+import { ConsoleLogger, Module, OnModuleInit } from '@nestjs/common';
 import { CatsController } from './cats.controller';
 import { CatsService } from './cats.service';
 
 @Module({
   controllers: [CatsController],
-  providers: [CatsService],
+  providers: [CatsService, ConsoleLogger],
 })
 export class CatsModule implements OnModuleInit {
   onModuleInit(): any {

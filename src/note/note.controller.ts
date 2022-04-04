@@ -1,22 +1,22 @@
-import { Controller, Get, LoggerService } from '@nestjs/common';
+import { Controller, Get, ConsoleLogger } from '@nestjs/common';
 import { NoteService } from './note.service';
 
 @Controller('note')
 export class NoteController {
   constructor(
     private noteService: NoteService,
-    private loggerService: LoggerService,
+    private consoleLogger: ConsoleLogger,
   ) {}
 
   @Get()
   hello() {
-    this.loggerService.log('visit api /note/hello');
+    this.consoleLogger.log('visit api /note/hello');
     return this.noteService.hello();
   }
 
   @Get('list')
   getList() {
-    this.loggerService.log('visit api /note/list');
+    this.consoleLogger.log('visit api /note/list');
     return this.noteService.getList();
   }
 }
